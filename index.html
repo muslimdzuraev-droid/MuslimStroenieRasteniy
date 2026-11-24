@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок биологии — Строение цветка | Джураев</title>
+
+<style>
+:root {
+    --green: #537a58;
+    --dark: #304b35;
+    --light: #e9f1e6;
+    --mint: #d5e5d0;
+    --cream: #f7f8f3;
+    --white: #fff;
+    --text: #293b2d;
+    --muted: #748174;
+    --border: #dce6d8;
+    --yellow: #f1d985;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+header {
+    background: linear-gradient(135deg, #355b3e, #7d9e7a);
+    color: white;
+    padding: 65px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "❧";
+    position: absolute;
+    font-size: 230px;
+    opacity: .08;
+    right: -20px;
+    top: -80px;
+    transform: rotate(-30deg);
+}
+
+header h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 17px;
+    opacity: .95;
+}
+
+.author {
+    margin-top: 20px;
+    opacity: .8;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 18px 60px;
+}
+
+nav {
+    background: white;
+    padding: 23px;
+    border-radius: 20px;
+    margin: 20px 0 35px;
+    box-shadow: 0 4px 20px #304d3808;
+}
+
+nav h2 {
+    font-size: 21px;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 9px;
+}
+
+nav a {
+    color: var(--green);
+    text-decoration: none;
+    background: var(--light);
+    padding: 10px 13px;
+    border-radius: 11px;
+    transition: .2s;
+}
+
+nav a:hover {
+    background: var(--mint);
+    transform: translateY(-2px);
+}
+
+section {
+    background: white;
+    padding: 28px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px #304d3808;
+    scroll-margin-top: 20px;
+}
+
+h2 {
+    color: var(--dark);
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: var(--green);
+    font-size: 20px;
+    margin: 22px 0 10px;
+}
+
+p {
+    margin-bottom: 13px;
+}
+
+ul, ol {
+    padding-left: 25px;
+    margin: 10px 0 17px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.definition {
+    background: var(--light);
+    border-left: 5px solid var(--green);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.tip {
+    background: #f7f3df;
+    border-left: 5px solid #d4bd65;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 17px;
+}
+
+.card {
+    background: #f5f8f3;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.diagram {
+    background: linear-gradient(#f4f8f0, #e7f0e4);
+    border-radius: 18px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.diagram svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.model {
+    background: #f0f6ed;
+    border: 1px solid #d9e7d5;
+    padding: 20px;
+    border-radius: 18px;
+    margin: 20px 0;
+}
+
+.model h3 {
+    margin-top: 0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background: var(--green);
+    color: white;
+    padding: 11px 18px;
+    transition: .2s;
+}
+
+button:hover {
+    background: var(--dark);
+    transform: translateY(-1px);
+}
+
+button.secondary {
+    background: #dce9d9;
+    color: var(--dark);
+}
+
+button.secondary:hover {
+    background: #c5dbc1;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--green);
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.output {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 12px;
+    color: var(--dark);
+}
+
+.flower {
+    position: relative;
+    width: 220px;
+    height: 260px;
+    margin: 20px auto;
+}
+
+.petal {
+    width: 70px;
+    height: 95px;
+    background: #efb5c6;
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    left: 75px;
+    top: 25px;
+    transform-origin: 50% 85%;
+    transition: 1.4s;
+    border: 2px solid #e99ab1;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-30px); }
+.petal:nth-child(2) { transform: rotate(60deg) translateY(-30px); }
+.petal:nth-child(3) { transform: rotate(120deg) translateY(-30px); }
+.petal:nth-child(4) { transform: rotate(180deg) translateY(-30px); }
+.petal:nth-child(5) { transform: rotate(240deg) translateY(-30px); }
+.petal:nth-child(6) { transform: rotate(300deg) translateY(-30px); }
+
+.flower.closed .petal {
+    transform: rotate(0deg) scale(.25);
+    background: #86a86f;
+    border-color: #71945c;
+}
+
+.center {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: #f3d65d;
+    border-radius: 50%;
+    left: 86px;
+    top: 78px;
+    z-index: 5;
+    transition: 1.4s;
+}
+
+.flower.closed .center {
+    transform: scale(.4);
+}
+
+.flower-stem {
+    position: absolute;
+    width: 9px;
+    height: 130px;
+    background: #4b8753;
+    top: 110px;
+    left: 105px;
+    border-radius: 10px;
+}
+
+.leaf {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #70a675;
+    border-radius: 100% 0 100% 0;
+    top: 160px;
+    left: 60px;
+    transform: rotate(-25deg);
+}
+
+.leaf.second {
+    left: 110px;
+    top: 190px;
+    transform: rotate(45deg);
+}
+
+#growthStage {
+    font-size: 40px;
+    text-align: center;
+}
+
+#growthPlant {
+    min-height: 170px;
+    font-size: 75px;
+    text-align: center;
+    transition: .5s;
+}
+
+#photosynthesisPlant {
+    font-size: 75px;
+    text-align: center;
+    transition: .5s;
+}
+
+.water {
+    display: inline-block;
+    animation: waterUp 2s infinite;
+}
+
+@keyframes waterUp {
+    0% { transform: translateY(15px); opacity: .2; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: .1; }
+}
+
+@keyframes sunlight {
+    0% { opacity: .3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(10px); }
+    100% { opacity: .3; transform: translateY(0); }
+}
+
+.sun {
+    animation: sunlight 2s infinite;
+    display: inline-block;
+}
+
+@keyframes grow {
+    0% { transform: scale(.5); }
+    100% { transform: scale(1); }
+}
+
+.quiz-question {
+    background: #f5f8f3;
+    padding: 18px;
+    border-radius: 14px;
+    margin: 15px 0;
+}
+
+.quiz-question label {
+    font-weight: normal;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.quiz-question input {
+    margin-right: 8px;
+    accent-color: var(--green);
+}
+
+#quizResult {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+td, th {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--light);
+    color: var(--dark);
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer h3 {
+    color: white;
+}
+
+@media(max-width:600px) {
+    section {
+        padding: 20px 16px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    header {
+        padding: 40px 15px;
+    }
+
+    .nav-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flower {
+        transform: scale(.85);
+    }
+
+    button {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌿 Урок биологии</h1>
+    <p>Строение цветка, корня и побега</p>
+    <div class="author">Джураев Муслим · Биология</div>
+</header>
+
+<div class="container">
+
+<nav>
+    <h2>📚 Оглавление</h2>
+    <div class="nav-grid">
+        <a href="#intro">1. Строение растения</a>
+        <a href="#root">2. Корень</a>
+        <a href="#shoot">3. Побег и стебель</a>
+        <a href="#bud">4. Почки</a>
+        <a href="#leaf">5. Лист</a>
+        <a href="#nutrition">6. Питание растения</a>
+        <a href="#photosynthesis">7. Фотосинтез</a>
+        <a href="#flower">8. Строение цветка</a>
+        <a href="#opening">9. Распускание бутона</a>
+        <a href="#growth">10. Рост растения</a>
+        <a href="#reproduction">11. Размножение</a>
+        <a href="#quiz">12. Проверочный тест</a>
+    </div>
+</nav>
+
+<!-- 1. РАСТЕНИЕ -->
+
+<section id="intro">
+<h2>1. Строение растения в целом</h2>
+
+<div class="definition">
+<b>Растение</b> — живой организм, который способен расти, развиваться,
+питаться, дышать и размножаться.
+</div>
+
+<p>У большинства растений выделяют две группы органов:</p>
+
+<div class="grid">
+<div class="card">
+<h3>🌱 Вегетативные органы</h3>
+<p>Обеспечивают жизнь, питание и рост растения.</p>
+<ul>
+<li>Корень</li>
+<li>Стебель</li>
+<li>Лист</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🌸 Генеративные органы</h3>
+<p>Обеспечивают размножение растения.</p>
+<ul>
+<li>Цветок</li>
+<li>Плод</li>
+<li>Семя</li>
+</ul>
+</div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 440" width="400">
+    <rect x="0" y="270" width="400" height="170" fill="#c8b79a"/>
+    <path d="M200 270 L200 100" stroke="#4c8551" stroke-width="12"/>
+    <path d="M200 180 Q100 100 100 130 Q110 190 200 180" fill="#74a66b"/>
+    <path d="M200 140 Q300 60 300 100 Q290 160 200 140" fill="#82b778"/>
+    <path d="M200 230 Q80 190 100 230 Q150 270 200 230" fill="#82b778"/>
+    <path d="M200 210 Q300 170 290 220 Q250 260 200 210" fill="#74a66b"/>
+    <circle cx="200" cy="70" r="20" fill="#f3d65d"/>
+    <ellipse cx="200" cy="45" rx="18" ry="28" fill="#f1b4c5"/>
+    <ellipse cx="200" cy="95" rx="18" ry="28" fill="#f1b4c5"/>
+    <ellipse cx="175" cy="70" rx="28" ry="18" fill="#f1b4c5"/>
+    <ellipse cx="225" cy="70" rx="28" ry="18" fill="#f1b4c5"/>
+    <circle cx="200" cy="70" r="13" fill="#e9c957"/>
+    <path d="M200 270 Q180 310 160 350 M200 270 Q220 310 250 350 M200 270 Q190 330 190 390 M200 280 Q150 320 120 330 M200 290 Q240 330 280 330"
+    stroke="#8a6747" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <text x="220" y="120" font-size="15" fill="#304d38">Цветок</text>
+    <text x="280" y="190" font-size="15" fill="#304d38">Листья</text>
+    <text x="220" y="250" font-size="15" fill="#304d38">Стебель</text>
+    <text x="230" y="350" font-size="15" fill="#304d38">Корень</text>
+</svg>
+</div>
+
+<p>Каждый орган выполняет свою функцию, но все органы работают вместе.
+Корень получает воду, стебель проводит её, листья производят органические вещества,
+а цветок обеспечивает размножение.</p>
+</section>
+
+<!-- 2. КОРЕНЬ -->
+
+<section id="root">
+<h2>2. Строение корня</h2>
+
+<div class="definition">
+<b>Корень</b> — подземный орган растения, который закрепляет его в почве,
+поглощает воду и минеральные вещества.
+</div>
+
+<h3>Функции корня</h3>
+<ul>
+<li>Закрепляет растение в почве.</li>
+<li>Поглощает воду и минеральные вещества.</li>
+<li>Проводит вещества к стеблю.</li>
+<li>Может запасать питательные вещества.</li>
+<li>У некоторых растений участвует в размножении.</li>
+</ul>
+
+<h3>Типы корневых систем</h3>
+
+<div class="grid">
+<div class="card">
+<h3>Стержневая</h3>
+<p>Главный корень хорошо развит, от него отходят боковые корни.</p>
+<p><b>Примеры:</b> морковь, фасоль, одуванчик.</p>
+</div>
+
+<div class="card">
+<h3>Мочковатая</h3>
+<p>Состоит из множества корней примерно одинаковой толщины.</p>
+<p><b>Примеры:</b> пшеница, лук, кукуруза.</p>
+</div>
+</div>
+
+<h3>Зоны корня</h3>
+
+<div class="diagram">
+<svg viewBox="0 0 400 500" width="400">
+    <rect x="150" y="20" width="100" height="80" rx="30" fill="#9ac28b"/>
+    <rect x="150" y="100" width="100" height="70" fill="#b5d3a2"/>
+    <rect x="150" y="170" width="100" height="90" fill="#d3e4b5"/>
+    <rect x="150" y="260" width="100" height="130" fill="#c9ad83"/>
+    <path d="M150 390 Q200 450 250 390" fill="#9e825e"/>
+    <path d="M200 20 L200 450" stroke="#8b704c" stroke-width="6"/>
+    <g stroke="#7e9b58" stroke-width="2">
+        <path d="M150 180 L110 170 M150 195 L100 190 M150 210 L105 220"/>
+        <path d="M250 180 L290 170 M250 195 L300 190 M250 210 L295 220"/>
+        <path d="M150 280 L100 275 M150 300 L95 310 M250 280 L300 275 M250 300 L305 310"/>
+    </g>
+    <text x="270" y="55" font-size="14">Зона деления</text>
+    <text x="270" y="130" font-size="14">Растяжения</text>
+    <text x="270" y="200" font-size="14">Всасывания</text>
+    <text x="270" y="300" font-size="14">Проведения</text>
+    <text x="140" y="475" font-size="14">Корневой чехлик</text>
+</svg>
+</div>
+
+<ol>
+<li><b>Корневой чехлик</b> — защищает кончик корня.</li>
+<li><b>Зона деления</b> — клетки активно делятся.</li>
+<li><b>Зона растяжения</b> — клетки увеличиваются в длину.</li>
+<li><b>Зона всасывания</b> — корневые волоски поглощают воду.</li>
+<li><b>Зона проведения</b> — переносит воду и минеральные вещества.</li>
+</ol>
+
+<h3>Корневые волоски</h3>
+<p>Это тонкие выросты клеток корня, увеличивающие площадь всасывания.
+Благодаря им растение эффективнее поглощает воду и минералы.</p>
+</section>
+
+<!-- 3. ПОБЕГ -->
+
+<section id="shoot">
+<h2>3. Побег и стебель</h2>
+
+<div class="definition">
+<b>Побег</b> — надземный орган растения, состоящий из стебля, листьев и почек.
+</div>
+
+<div class="definition">
+<b>Стебель</b> — осевой орган растения, который поддерживает листья,
+цветки и плоды, а также проводит вещества.
+</div>
+
+<h3>Функции стебля</h3>
+<ul>
+<li>Опорная — поддерживает другие органы.</li>
+<li>Проводящая — переносит воду и питательные вещества.</li>
+<li>Ростовая — обеспечивает рост растения.</li>
+<li>Запасающая — может хранить питательные вещества.</li>
+<li>Фотосинтетическая — у зелёных стеблей.</li>
+</ul>
+
+<h3>Внешнее строение стебля</h3>
+
+<div class="diagram">
+<svg viewBox="0 0 400 350" width="400">
+    <path d="M200 300 L200 45" stroke="#568451" stroke-width="12" stroke-linecap="round"/>
+    <path d="M200 110 Q120 40 100 70 Q130 120 200 110" fill="#8eb87e"/>
+    <path d="M200 180 Q280 100 300 130 Q280 180 200 180" fill="#8eb87e"/>
+    <path d="M200 240 Q110 180 100 220 Q140 260 200 240" fill="#8eb87e"/>
+    <circle cx="200" cy="45" r="10" fill="#a5c988"/>
+    <circle cx="200" cy="110" r="8" fill="#476f45"/>
+    <circle cx="200" cy="180" r="8" fill="#476f45"/>
+    <circle cx="200" cy="240" r="8" fill="#476f45"/>
+    <text x="230" y="50" font-size="14">Верхушечная почка</text>
+    <text x="230" y="115" font-size="14">Узел</text>
+    <text x="230" y="160" font-size="14">Междоузлие</text>
+    <text x="230" y="185" font-size="14">Боковая почка</text>
+</svg>
+</div>
+
+<ul>
+<li><b>Узел</b> — место прикрепления листьев.</li>
+<li><b>Междоузлие</b> — участок между соседними узлами.</li>
+<li><b>Верхушечная почка</b> — обеспечивает рост побега в длину.</li>
+<li><b>Боковая почка</b> — может образовывать ветвь.</li>
+</ul>
+
+<h3>Внутреннее строение стебля</h3>
+
+<div class="grid">
+<div class="card">
+<h3>Кора</h3>
+<p>Защищает стебель от внешних воздействий.</p>
+</div>
+
+<div class="card">
+<h3>Луб</h3>
+<p>Проводит органические вещества от листьев.</p>
+</div>
+
+<div class="card">
+<h3>Камбий</h3>
+<p>Образует новые клетки и обеспечивает рост стебля в толщину.</p>
+</div>
+
+<div class="card">
+<h3>Древесина</h3>
+<p>Проводит воду и минеральные вещества, поддерживает растение.</p>
+</div>
+
+<div class="card">
+<h3>Сердцевина</h3>
+<p>Находится в центре и у некоторых растений запасает вещества.</p>
+</div>
+</div>
+
+<h3>Годичные кольца</h3>
+<p>У деревьев в древесине формируются годичные кольца.
+По ним можно определить возраст дерева и особенности его роста.</p>
+</section>
+
+<!-- 4. ПОЧКИ -->
+
+<section id="bud">
+<h2>4. Почки растения</h2>
+
+<div class="definition">
+<b>Почка</b> — зачаточный побег, из которого развивается новый стебель,
+листья или цветок.
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 300" width="400">
+    <path d="M200 260 L200 130" stroke="#557b5a" stroke-width="12"/>
+    <path d="M200 130 Q150 90 130 140 Q150 180 200 130" fill="#8eb87e"/>
+    <path d="M200 170 Q270 130 290 160 Q270 200 200 170" fill="#8eb87e"/>
+    <path d="M200 130 Q140 80 180 20 Q220 80 200 130" fill="#76a46c" stroke="#4c7c4a" stroke-width="3"/>
+    <path d="M200 130 Q165 100 180 30" fill="none" stroke="#b3d39d" stroke-width="2"/>
+    <text x="230" y="40" font-size="14">Верхушечная</text>
+    <text x="230" y="60" font-size="14">почка</text>
+    <text x="230" y="150" font-size="14">Лист</text>
+    <text x="230" y="200" font-size="14">Боковая почка</text>
+</svg>
+</div>
+
+<h3>Виды почек</h3>
+<ul>
+<li><b>Вегетативные</b> — образуют побеги и листья.</li>
+<li><b>Генеративные</b> — образуют цветки.</li>
+<li><b>Смешанные</b> — образуют и листья, и цветки.</li>
+<li><b>Верхушечные</b> — расположены на конце побега.</li>
+<li><b>Пазушные</b> — расположены в пазухах листьев.</li>
+</ul>
+
+<p>Почки часто покрыты чешуями, защищающими их от холода и высыхания.</p>
+
+<div class="tip">
+<b>Интересно:</b> при удалении верхушечной почки боковые почки
+часто начинают развиваться активнее. Поэтому растение становится более ветвистым.
+</div>
+</section>
+
+<!-- 5. ЛИСТ -->
+
+<section id="leaf">
+<h2>5. Строение листа</h2>
+
+<div class="definition">
+<b>Лист</b> — боковой орган побега, который выполняет фотосинтез,
+газообмен и испарение воды.
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 300" width="400">
+    <path d="M200 240 Q70 120 130 30 Q280 50 300 160 Q260 220 200 240" fill="#82b778" stroke="#527d4e" stroke-width="3"/>
+    <path d="M200 240 Q190 120 130 30" stroke="#477747" stroke-width="5" fill="none"/>
+    <g stroke="#527d4e" stroke-width="2">
+        <path d="M190 190 L130 130"/>
+        <path d="M185 160 L150 95"/>
+        <path d="M180 130 L170 65"/>
+        <path d="M210 190 L260 150"/>
+        <path d="M210 160 L275 110"/>
+        <path d="M210 130 L290 90"/>
+    </g>
+    <path d="M200 240 L200 280" stroke="#527d4e" stroke-width="5"/>
+    <text x="300" y="120" font-size="14">Жилки</text>
+    <text x="220" y="275" font-size="14">Черешок</text>
+    <text x="20" y="220" font-size="14">Листовая</text>
+    <text x="20" y="240" font-size="14">пластинка</text>
+</svg>
+</div>
+
+<h3>Основные части листа</h3>
+<ul>
+<li><b>Листовая пластинка</b> — широкая часть листа.</li>
+<li><b>Черешок</b> — соединяет лист со стеблем.</li>
+<li><b>Жилки</b> — проводят вещества.</li>
+<li><b>Основание листа</b> — место соединения со стеблем.</li>
+</ul>
+
+<h3>Функции листа</h3>
+<ul>
+<li>Фотосинтез.</li>
+<li>Газообмен.</li>
+<li>Испарение воды — транспирация.</li>
+</ul>
+</section>
+
+<!-- 6. ПИТАНИЕ -->
+
+<section id="nutrition">
+<h2>6. Как питается растение?</h2>
+
+<div class="definition">
+Растение получает воду и минеральные вещества из почвы,
+углекислый газ из воздуха, а энергию для фотосинтеза — от солнечного света.
+</div>
+
+<h3>Модель питания растения</h3>
+
+<div class="model">
+
+<div class="diagram">
+<svg viewBox="0 0 400 350" width="100%" style="max-width:400px">
+    <rect x="0" y="220" width="400" height="130" fill="#bda887"/>
+    <path d="M200 220 L200 100" stroke="#4d8951" stroke-width="12"/>
+    <path d="M200 140 Q110 70 100 110 Q140 160 200 140" fill="#75a66d"/>
+    <path d="M200 120 Q300 60 310 100 Q270 150 200 120" fill="#75a66d"/>
+    <circle cx="200" cy="80" r="30" fill="#f1d985"/>
+    <g stroke="#f1d985" stroke-width="4">
+        <path d="M200 30 L200 10"/>
+        <path d="M150 40 L130 20"/>
+        <path d="M250 40 L270 20"/>
+        <path d="M150 80 L120 80"/>
+        <path d="M250 80 L280 80"/>
+    </g>
+    <path d="M200 220 Q170 270 150 300 M200 220 Q230 270 250 300 M200 220 L200 310"
+    stroke="#8b704c" stroke-width="7" fill="none"/>
+    <text x="20" y="30" fill="#527d4e" font-size="16">CO₂ →</text>
+    <text x="20" y="180" fill="#527d4e" font-size="16">H₂O ↓</text>
+</svg>
+</div>
+
+<div class="grid">
+<div class="card">
+<h3>☀️ Солнечный свет</h3>
+<p>Обеспечивает энергию для фотосинтеза.</p>
+</div>
+<div class="card">
+<h3>💧 Вода</h3>
+<p>Поглощается корнями и поднимается по стеблю.</p>
+</div>
+<div class="card">
+<h3>🌬️ Углекислый газ</h3>
+<p>Поступает из воздуха через устьица листьев.</p>
+</div>
+</div>
+
+<div class="output">
+Питание растения: вода + минеральные вещества + CO₂ + свет
+</div>
+</div>
+
+<h3>Как перемещаются вещества?</h3>
+<ol>
+<li>Корни поглощают воду и минералы.</li>
+<li>Вода поднимается по проводящим тканям стебля.</li>
+<li>Листья получают углекислый газ из воздуха.</li>
+<li>При фотосинтезе образуются органические вещества.</li>
+<li>Органические вещества перемещаются к другим органам.</li>
+</ol>
+
+<h3>Модель движения воды</h3>
+
+<div class="model">
+<div id="waterAnimation" style="font-size:25px;text-align:center;min-height:50px">
+💧 💧 💧
+</div>
+
+<div class="diagram">
+<div style="font-size:55px">🌱</div>
+<p>Корень → Стебель → Лист</p>
+</div>
+
+<div class="controls" style="justify-content:center">
+<button onclick="startWater()">▶ Запустить движение воды</button>
+<button class="secondary" onclick="stopWater()">⏸ Остановить</button>
+</div>
+
+<p id="waterStatus" class="output">Вода поглощается корнями растения.</p>
+</div>
+</section>
+
+<!-- 7. ФОТОСИНТЕЗ -->
+
+<section id="photosynthesis">
+<h2>7. Фотосинтез</h2>
+
+<div class="definition">
+<b>Фотосинтез</b> — процесс образования органических веществ из углекислого газа
+и воды с использованием энергии света. При этом выделяется кислород.
+Происходит преимущественно в зелёных частях растения, в хлоропластах.
+</div>
+
+<h3>Уравнение фотосинтеза</h3>
+
+<div class="model" style="text-align:center">
+<h2 style="color:#557b5a">☀️ + CO₂ + H₂O → 🍃 → C₆H₁₂O₆ + O₂</h2>
+<p>Свет + углекислый газ + вода → глюкоза + кислород</p>
+</div>
+
+<h3>Интерактивная модель фотосинтеза</h3>
+
+<div class="model">
+<div id="photosynthesisPlant">🌱</div>
+
+<label>Интенсивность света: <span id="lightValue">50</span>%</label>
+<input type="range" id="light" min="0" max="100" value="50">
+
+<label>Количество углекислого газа: <span id="co2Value">50</span>%</label>
+<input type="range" id="co2" min="0" max="100" value="50">
+
+<label>Доступность воды: <span id="waterValue">50</span>%</label>
+<input type="range" id="water" min="0" max="100" value="50">
+
+<div class="output">
+<div id="photoRate">Скорость фотосинтеза: средняя</div>
+<div id="photoExplanation"></div>
+</div>
+
+<div class="diagram">
+<div style="font-size:22px">
+<span class="sun">☀️</span>
+<span>🌬️ CO₂</span>
+<span class="water">💧</span>
+</div>
+<div id="photoResult" style="font-size:22px;margin:10px">
+🌱 → 🍃 → 🍬 + O₂
+</div>
+<p id="photoStatus">Растение использует свет, воду и CO₂.</p>
+</div>
+</div>
+
+<h3>Что влияет на фотосинтез?</h3>
+
+<div class="grid">
+<div class="card">
+<h3>Свет</h3>
+<p>Чем больше доступного света, тем быстрее фотосинтез, если другие условия достаточны.</p>
+</div>
+<div class="card">
+<h3>CO₂</h3>
+<p>Углекислый газ является исходным веществом для образования органических веществ.</p>
+</div>
+<div class="card">
+<h3>Вода</h3>
+<p>Необходима для фотосинтеза и поддержания жизнедеятельности клеток.</p>
+</div>
+</div>
+
+<div class="tip">
+Если одного из необходимых факторов слишком мало, он ограничивает скорость фотосинтеза.
+Например, яркий свет не поможет растению, если ему не хватает воды.
+</div>
+</section>
+
+<!-- 8. ЦВЕТОК -->
+
+<section id="flower">
+<h2>8. Строение цветка</h2>
+
+<div class="definition">
+<b>Цветок</b> — видоизменённый укороченный побег, являющийся органом
+полового размножения цветковых растений.
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 400" width="400">
+    <path d="M200 310 L200 370" stroke="#53834f" stroke-width="8"/>
+    <ellipse cx="200" cy="200" rx="50" ry="100" fill="#f3b6c7"/>
+    <ellipse cx="200" cy="200" rx="50" ry="100" fill="#f3b6c7" transform="rotate(60 200 200)"/>
+    <ellipse cx="200" cy="200" rx="50" ry="100" fill="#f3b6c7" transform="rotate(120 200 200)"/>
+    <circle cx="200" cy="200" r="30" fill="#f2d567"/>
+    <path d="M200 200 L200 285" stroke="#56834e" stroke-width="7"/>
+    <ellipse cx="200" cy="280" rx="35" ry="22" fill="#91b676"/>
+    <g stroke="#d9a245" stroke-width="4">
+        <path d="M160 190 L145 150"/>
+        <path d="M240 190 L255 150"/>
+        <path d="M165 220 L145 260"/>
+        <path d="M235 220 L255 260"/>
+    </g>
+    <text x="280" y="120" font-size="14">Лепестки</text>
+    <text x="270" y="205" font-size="14">Тычинки</text>
+    <text x="250" y="290" font-size="14">Завязь</text>
+    <text x="20" y="350" font-size="14">Цветоножка</text>
+</svg>
+</div>
+
+<h3>Основные части цветка</h3>
+
+<div class="grid">
+<div class="card">
+<h3>Цветоножка</h3>
+<p>Соединяет цветок с побегом.</p>
+</div>
+<div class="card">
+<h3>Цветоложе</h3>
+<p>Основа, на которой располагаются части цветка.</p>
+</div>
+<div class="card">
+<h3>Чашечка</h3>
+<p>Состоит из чашелистиков, защищающих бутон.</p>
+</div>
+<div class="card">
+<h3>Венчик</h3>
+<p>Состоит из лепестков, привлекающих опылителей.</p>
+</div>
+<div class="card">
+<h3>Тычинка</h3>
+<p>Мужской орган, в котором образуется пыльца.</p>
+</div>
+<div class="card">
+<h3>Пестик</h3>
+<p>Женский орган, содержащий семязачатки.</p>
+</div>
+</div>
+
+<h3>Строение тычинки</h3>
+<p>Тычинка состоит из тычиночной нити и пыльника.
+В пыльнике образуются пыльцевые зерна.</p>
+
+<h3>Строение пестика</h3>
+<ul>
+<li><b>Рыльце</b> — принимает пыльцу.</li>
+<li><b>Столбик</b> — соединяет рыльце с завязью.</li>
+<li><b>Завязь</b> — содержит семязачатки.</li>
+</ul>
+
+<h3>Виды цветков</h3>
+<div class="grid">
+<div class="card">
+<h3>Обоеполые</h3>
+<p>Имеют и тычинки, и пестик.</p>
+</div>
+<div class="card">
+<h3>Однополые</h3>
+<p>Имеют только тычинки или только пестик.</p>
+</div>
+</div>
+</section>
+
+<!-- 9. БУТОН -->
+
+<section id="opening">
+<h2>9. Модель распускания бутона</h2>
+
+<p>Бутон — это молодой цветок, части которого ещё не раскрылись.
+По мере развития лепестки увеличиваются и раскрываются.</p>
+
+<div class="model">
+<div id="flowerModel" class="flower closed">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
+    <div class="flower-stem"></div>
+    <div class="leaf"></div>
+    <div class="leaf second"></div>
+</div>
+
+<div style="text-align:center">
+<h3 id="flowerState">🌱 Бутон закрыт</h3>
+<p id="flowerDescription">Лепестки находятся в сложенном состоянии.</p>
+</div>
+
+<div class="controls" style="justify-content:center">
+<button onclick="openFlower()">🌸 Распустить цветок</button>
+<button class="secondary" onclick="closeFlower()">🌱 Закрыть бутон</button>
+</div>
+</div>
+
+<h3>Что происходит при распускании?</h3>
+<ol>
+<li>Клетки лепестков растут и увеличиваются.</li>
+<li>В лепестках изменяется давление воды.</li>
+<li>Лепестки постепенно разворачиваются.</li>
+<li>Цветок становится доступным для опылителей.</li>
+</ol>
+</section>
+
+<!-- 10. РОСТ -->
+
+<section id="growth">
+<h2>10. Модель роста растения</h2>
+
+<p>Растение развивается постепенно: сначала из семени появляется корешок,
+затем росток, листья, взрослый побег и цветок.</p>
+
+<div class="model">
+<div id="growthStage">Этап 1</div>
+<div id="growthPlant">🌰</div>
+
+<div style="text-align:center">
+<h3 id="growthText">Семя</h3>
+<p id="growthDescription">Семя содержит зародыш будущего растения.</p>
+</div>
+
+<div class="controls" style="justify-content:center">
+<button onclick="previousStage()">← Назад</button>
+<button onclick="nextStage()">Следующий этап →</button>
+<button class="secondary" onclick="resetGrowth()">Начать сначала</button>
+</div>
+</div>
+
+<h3>Этапы развития</h3>
+<ol>
+<li>Семя.</li>
+<li>Прорастание — появляется корешок.</li>
+<li>Росток — появляются стебель и первые листья.</li>
+<li>Молодое растение.</li>
+<li>Взрослое растение.</li>
+<li>Цветение.</li>
+<li>Образование плодов и семян.</li>
+</ol>
+</section>
+
+<!-- 11. РАЗМНОЖЕНИЕ -->
+
+<section id="reproduction">
+<h2>11. Размножение цветковых растений</h2>
+
+<h3>Опыление</h3>
+<div class="definition">
+<b>Опыление</b> — перенос пыльцы с пыльника тычинки на рыльце пестика.
+</div>
+
+<p>Опыление может происходить с помощью:</p>
+<ul>
+<li>насекомых;</li>
+<li>ветра;</li>
+<li>воды;</li>
+<li>других факторов.</li>
+</ul>
+
+<h3>Оплодотворение</h3>
+<p>После попадания пыльцы на рыльце пестика она прорастает.
+Пыльцевая трубка проходит к семязачатку, где происходит оплодотворение.</p>
+
+<div class="diagram">
+<div style="font-size:35px">🌸 → 🐝 → 🌸 → 🌱 → 🍎</div>
+<p>Цветок → опыление → оплодотворение → семя → плод</p>
+</div>
+
+<h3>Двойное оплодотворение</h3>
+<p>У цветковых растений один мужской гамета сливается с яйцеклеткой,
+образуя зародыш, а другой участвует в образовании эндосперма —
+питательной ткани семени.</p>
+
+<div class="table">
+<table>
+<tr><th>Часть цветка</th><th>Что образуется</th></tr>
+<tr><td>Завязь</td><td>Плод</td></tr>
+<tr><td>Семязачаток</td><td>Семя</td></tr>
+<tr><td>Оплодотворённая яйцеклетка</td><td>Зародыш</td></tr>
+</table>
+</div>
+</section>
+
+<!-- 12. ТЕСТ -->
+
+<section id="quiz">
+<h2>12. Проверочный тест</h2>
+<p>Выбери правильный ответ на каждый вопрос и нажми «Проверить».</p>
+
+<form id="quizForm">
+
+<div class="quiz-question">
+<b>1. Какой орган поглощает воду из почвы?</b>
+<label><input type="radio" name="q1" value="a"> Лист</label>
+<label><input type="radio" name="q1" value="b"> Корень</label>
+<label><input type="radio" name="q1" value="c"> Цветок</label>
+</div>
+
+<div class="quiz-question">
+<b>2. Что такое побег?</b>
+<label><input type="radio" name="q2" value="a"> Только стебель</label>
+<label><input type="radio" name="q2" value="b"> Корень с листьями</label>
+<label><input type="radio" name="q2" value="c"> Стебель, листья и почки</label>
+</div>
+
+<div class="quiz-question">
+<b>3. Как называется мужской орган цветка?</b>
+<label><input type="radio" name="q3" value="a"> Пестик</label>
+<label><input type="radio" name="q3" value="b"> Тычинка</label>
+<label><input type="radio" name="q3" value="c"> Завязь</label>
+</div>
+
+<div class="quiz-question">
+<b>4. Где происходит фотосинтез?</b>
+<label><input type="radio" name="q4" value="a"> В хлоропластах</label>
+<label><input type="radio" name="q4" value="b"> В корневом чехлике</label>
+<label><input type="radio" name="q4" value="c"> В семени</label>
+</div>
+
+<div class="quiz-question">
+<b>5. Что образуется из завязи после оплодотворения?</b>
+<label><input type="radio" name="q5" value="a"> Корень</label>
+<label><input type="radio" name="q5" value="b"> Лист</label>
+<label><input type="radio" name="q5" value="c"> Плод</label>
+</div>
+
+<div class="quiz-question">
+<b>6. Какую функцию выполняет камбий?</b>
+<label><input type="radio" name="q6" value="a"> Образует новые клетки и обеспечивает рост в толщину</label>
+<label><input type="radio" name="q6" value="b"> Поглощает свет</label>
+<label><input type="radio" name="q6" value="c"> Образует пыльцу</label>
+</div>
+
+<div class="quiz-question">
+<b>7. Что необходимо для фотосинтеза?</b>
+<label><input type="radio" name="q7" value="a"> Только кислород</label>
+<label><input type="radio" name="q7" value="b"> Свет, вода и углекислый газ</label>
+<label><input type="radio" name="q7" value="c"> Только минеральные вещества</label>
+</div>
+
+<div class="quiz-question">
+<b>8. Как называется перенос пыльцы на рыльце пестика?</b>
+<label><input type="radio" name="q8" value="a"> Дыхание</label>
+<label><input type="radio" name="q8" value="b"> Транспирация</label>
+<label><input type="radio" name="q8" value="c"> Опыление</label>
+</div>
+
+<div class="quiz-question">
+<b>9. Что развивается из семязачатка?</b>
+<label><input type="radio" name="q9" value="a"> Семя</label>
+<label><input type="radio" name="q9" value="b"> Плод</label>
+<label><input type="radio" name="q9" value="c"> Стебель</label>
+</div>
+
+<div class="quiz-question">
+<b>10. Какую функцию выполняет верхушечная почка?</b>
+<label><input type="radio" name="q10" value="a"> Поглощает воду</label>
+<label><input type="radio" name="q10" value="b"> Обеспечивает рост побега в длину</label>
+<label><input type="radio" name="q10" value="c"> Образует корневые волоски</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">Проверить ответы</button>
+<button type="reset" class="secondary" onclick="resetQuiz()">Пройти заново</button>
+
+<div id="quizResult"></div>
+</form>
+</section>
+
+</div>
+
+<footer>
+<h3>🌿 Биология</h3>
+<p>Урок: «Строение цветка, корня и побега»</p>
+<p>Джураев Муслим</p>
+<p style="opacity:.7">Учись понимать природу, а не просто запоминать.</p>
+</footer>
+
+<script>
+
+// ФОТОСИНТЕЗ
+
+const light = document.getElementById("light");
+const co2 = document.getElementById("co2");
+const water = document.getElementById("water");
+
+function updatePhotosynthesis() {
+    const l = Number(light.value);
+    const c = Number(co2.value);
+    const w = Number(water.value);
+
+    document.getElementById("lightValue").textContent = l;
+    document.getElementById("co2Value").textContent = c;
+    document.getElementById("waterValue").textContent = w;
+
+    const rate = Math.min(l, c, w);
+
+    let text = "";
+    let explanation = "";
+    let status = "";
+
+    if (rate < 20) {
+        text = "Очень низкая";
+        explanation = "Одного или нескольких факторов почти не хватает.";
+        status = "🌱 Фотосинтез происходит очень медленно.";
+    } else if (rate < 45) {
+        text = "Низкая";
+        explanation = "Недостаток одного из факторов ограничивает фотосинтез.";
+        status = "🍃 Растение образует мало органических веществ.";
+    } else if (rate < 75) {
+        text = "Средняя";
+        explanation = "Условия позволяют фотосинтезировать, но есть ограничения.";
+        status = "🌿 Фотосинтез идёт умеренно.";
+    } else {
+        text = "Высокая";
+        explanation = "Все три фактора доступны в достаточном количестве.";
+        status = "🌳 Фотосинтез идёт активно.";
+    }
+
+    document.getElementById("photoRate").textContent =
+        "Скорость фотосинтеза: " + text;
+
+    document.getElementById("photoExplanation").textContent =
+        explanation;
+
+    document.getElementById("photoStatus").textContent =
+        status;
+
+    const plant = document.getElementById("photosynthesisPlant");
+
+    if (rate < 20) {
+        plant.textContent = "🥀";
+    } else if (rate < 45) {
+        plant.textContent = "🌱";
+    } else if (rate < 75) {
+        plant.textContent = "🌿";
+    } else {
+        plant.textContent = "🌳";
+    }
+
+    plant.style.transform = "scale(" + (0.7 + rate / 250) + ")";
+}
+
+light.addEventListener("input", updatePhotosynthesis);
+co2.addEventListener("input", updatePhotosynthesis);
+water.addEventListener("input", updatePhotosynthesis);
+
+updatePhotosynthesis();
+
+
+// РАСПУСКАНИЕ БУТОНА
+
+function openFlower() {
+    document.getElementById("flowerModel").classList.remove("closed");
+
+    document.getElementById("flowerState").textContent =
+        "🌸 Цветок распустился";
+
+    document.getElementById("flowerDescription").textContent =
+        "Лепестки раскрылись. Цветок готов привлекать опылителей.";
+}
+
+function closeFlower() {
+    document.getElementById("flowerModel").classList.add("closed");
+
+    document.getElementById("flowerState").textContent =
+        "🌱 Бутон закрыт";
+
+    document.getElementById("flowerDescription").textContent =
+        "Лепестки находятся в сложенном состоянии.";
+}
+
+
+// МОДЕЛЬ РОСТА РАСТЕНИЯ
+
+const stages = [
+    {
+        emoji: "🌰",
+        title: "Этап 1: Семя",
+        description: "Семя содержит зародыш будущего растения."
+    },
+    {
+        emoji: "🌱",
+        title: "Этап 2: Прорастание",
+        description: "Семя поглощает воду. Первым обычно появляется корешок."
+    },
+    {
+        emoji: "🌿",
+        title: "Этап 3: Росток",
+        description: "Развиваются стебель и первые листья."
+    },
+    {
+        emoji: "🪴",
+        title: "Этап 4: Молодое растение",
+        description: "Растение увеличивается, образует новые листья и ветви."
+    },
+    {
+        emoji: "🌳",
+        title: "Этап 5: Взрослое растение",
+        description: "Растение достигает зрелости и готовится к размножению."
+    },
+    {
+        emoji: "🌸",
+        title: "Этап 6: Цветение",
+        description: "Образуются цветки, в которых происходит половое размножение."
+    },
+    {
+        emoji: "🍎",
+        title: "Этап 7: Плод и семена",
+        description: "После оплодотворения формируются плоды и семена."
+    }
+];
+
+let currentStage = 0;
+
+function showStage() {
+    const stage = stages[currentStage];
+
+    document.getElementById("growthStage").textContent =
+        "Этап " + (currentStage + 1) + " из " + stages.length;
+
+    document.getElementById("growthPlant").textContent = stage.emoji;
+
+    document.getElementById("growthText").textContent = stage.title;
+
+    document.getElementById("growthDescription").textContent =
+        stage.description;
+
+    document.getElementById("growthPlant").style.animation =
+        "grow .5s ease";
+}
+
+function nextStage() {
+    if (currentStage < stages.length - 1) {
+        currentStage++;
+        showStage();
+    }
+}
+
+function previousStage() {
+    if (currentStage > 0) {
+        currentStage--;
+        showStage();
+    }
+}
+
+function resetGrowth() {
+    currentStage = 0;
+    showStage();
+}
+
+showStage();
+
+
+// МОДЕЛЬ ДВИЖЕНИЯ ВОДЫ
+
+let waterTimer = null;
+
+function startWater() {
+    stopWater();
+
+    const animation = document.getElementById("waterAnimation");
+    const status = document.getElementById("waterStatus");
+
+    const stagesWater = [
+        "💧 💧 💧 Корень поглощает воду",
+        "💧 ↑ 💧 Вода поступает в стебель",
+        "💧 ↑↑ Вода движется по сосудам",
+        "💧 🍃 Вода достигает листьев",
+        "🍃 Вода участвует в фотосинтезе"
+    ];
+
+    let index = 0;
+
+    status.textContent = "Модель движения воды запущена.";
+
+    animation.textContent = stagesWater[index];
+
+    waterTimer = setInterval(() => {
+        index++;
+
+        if (index >= stagesWater.length) {
+            index = 0;
+        }
+
+        animation.textContent = stagesWater[index];
+    }, 1200);
+}
+
+function stopWater() {
+    if (waterTimer !== null) {
+        clearInterval(waterTimer);
+        waterTimer = null;
+    }
+
+    document.getElementById("waterAnimation").textContent = "💧 💧 💧";
+
+    document.getElementById("waterStatus").textContent =
+        "Модель остановлена. Вода поглощается корнями растения.";
+}
+
+
+// ТЕСТ
+
+const correctAnswers = {
+    q1: "b",
+    q2: "c",
+    q3: "b",
+    q4: "a",
+    q5: "c",
+    q6: "a",
+    q7: "b",
+    q8: "c",
+    q9: "a",
+    q10: "b"
+};
+
+function checkQuiz() {
+    let score = 0;
+    let total = 10;
+
+    for (let question in correctAnswers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (selected && selected.value === correctAnswers[question]) {
+            score++;
+        }
+    }
+
+    const result = document.getElementById("quizResult");
+
+    let message = "";
+
+    if (score === 10) {
+        message = "🏆 Отлично! Ты ответил правильно на все вопросы!";
+    } else if (score >= 8) {
+        message = "🌿 Очень хороший результат! Ты хорошо знаешь тему.";
+    } else if (score >= 6) {
+        message = "👍 Хорошо! Но некоторые разделы стоит повторить.";
+    } else if (score >= 4) {
+        message = "📚 Неплохо, но советуем повторить урок.";
+    } else {
+        message = "🌱 Попробуй ещё раз после повторения материала.";
+    }
+
+    result.style.background = "#e9f1e6";
+    result.style.color = "#304b35";
+
+    result.innerHTML =
+        "Твой результат: " + score + " из " + total +
+        "<br>" + message;
+}
+
+function resetQuiz() {
+    document.getElementById("quizResult").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
